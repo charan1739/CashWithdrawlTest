@@ -9,7 +9,7 @@ public class WithdrawalAppTest {
         WebDriver driver = new ChromeDriver();
         driver.get("https://qawithdrawal.ccbp.tech/");
 
-        // Username using child CSS selector from parent with class containing 'details'
+        
         WebElement username = driver.findElement(By.cssSelector("div[class*='details'] > p.name"));
         String expectedUsername = "Sarah Williams";
         if (username.getText().equals(expectedUsername)) {
@@ -18,7 +18,7 @@ public class WithdrawalAppTest {
             System.out.println("Incorrect username");
         }
 
-        // Initial balance
+        
         WebElement balance = driver.findElement(By.cssSelector("div[class*='balance'] > p.balance"));
         int initialBalance = Integer.parseInt(balance.getText());
         if (initialBalance == 2000) {
@@ -27,7 +27,7 @@ public class WithdrawalAppTest {
             System.out.println("Incorrect initial balance");
         }
 
-        // Denomination buttons inside <ul> with class starting with 'denominations'
+        
         WebElement firstBtn = driver.findElement(By.cssSelector("ul[class^='denominations'] li:nth-child(1) button"));
         WebElement secondBtn = driver.findElement(By.cssSelector("ul[class^='denominations'] li:nth-child(2) button"));
         WebElement thirdBtn = driver.findElement(By.cssSelector("ul[class^='denominations'] li:nth-child(3) button"));
@@ -35,7 +35,7 @@ public class WithdrawalAppTest {
 
         int balanceAmt = initialBalance;
 
-        // Helper method to click a button twice and verify the new balance
+       
         balanceAmt = clickAndVerify(firstBtn, balanceAmt, driver);
         balanceAmt = clickAndVerify(secondBtn, balanceAmt, driver);
         balanceAmt = clickAndVerify(thirdBtn, balanceAmt, driver);
